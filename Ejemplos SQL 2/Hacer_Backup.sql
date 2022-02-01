@@ -1,0 +1,1 @@
+backup datadase nombrebasededatos to disk='c:\nombrebasededatos.bak'
