@@ -3,24 +3,34 @@ USE TEST_PROPIETARIA;
 
 
 CREATE TABLE USUARIO
-	(ID_EMP INT NOT NULL,
+	(ID_EMP VARCHAR(5),
 	 NOMBRE VARCHAR(30),
 	 APELLIDO VARCHAR(30),
 	 PUESTO VARCHAR(20),
+	 SALARIO VARCHAR(30),
 	 USUARIO VARCHAR(30),
 	 CONTRASENA VARCHAR(30),
-	 TIPO_ACCESO INT NOT NULL,
+	 TIPO_ACCESO VARCHAR(1),
 	 CONSTRAINT PK_USER PRIMARY KEY(ID_EMP)
 	)
 
 select * from usuario
+delete from usuario
 
 insert into usuario values
-(001,'Christian','Montolio','Gerente de Tec','chmontolio','123456',1),
-(002,'Chelis','Hernandez','Gerente de RH','chernandez','654321',2)
+(001,'Christian','Montolio','Gerente de Tec',125000,'chmontolio','123456',1),
+(002,'Chelis','Hernandez','Gerente de RH',150000,'chernandez','654321',2),
+(003,'Juan','Perez','Analista de Tec',45000,'juperez','tehicereir',2),
+(004,'Carmen','Cruz','Analista de RH',42000,'cacruz','asmereir',2),
+(005,'Juana','Mendez','Soporte de Tec',25000,'jumendez','123456',2),
+(006,'Aristocratico','Velez','Analista de Tec',56000,'arvelez','654321',2),
+(007,'Ana','Perez','Gerente General',256000,'anperez','soyelfinal',1)
 
 
-SELECT NOMBRE, APELLIDO, TIPO_ACCESO FROM USUARIO WHERE USUARIO='chmontolio' AND CONTRASENA='123456'
+SELECT NOMBRE, APELLIDO, TIPO_ACCESO FROM USUARIO WHERE USUARIO='chmontolio' OR TIPO_ACCESO=2 OR TIPO_ACCESO=1
+
+UPDATE USUARIO SET NOMBRE='Chelis', APELLIDO='Hernandez', PUESTO='Gerente de RH', SALARIO='150000', USUARIO='chernandez', CONTRASENA='654321', TIPO_ACCESO='2' WHERE ID_EMP='" + id + "';"
+
 
 
  select * from empleado
